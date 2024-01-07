@@ -1,7 +1,370 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>千顷文化</title><meta name="author" content="Senchin Oxarlly"><meta name="copyright" content="Senchin Oxarlly"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="千顷文化">
+<meta property="og:url" content="http://senchin.github.io/index.html">
+<meta property="og:site_name" content="千顷文化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://senchin.github.io/media/favicon.png">
+<meta property="article:author" content="Senchin Oxarlly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://senchin.github.io/media/favicon.png"><link rel="shortcut icon" href="https://senchin.github.io/media/favicon.png"><link rel="canonical" href="http://senchin.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '千顷文化',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-07 15:16:41'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    +postUI
-    include includes/pagination.pug
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://senchin.github.io/media/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/bg.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="千顷文化"><span class="site-name">千顷文化</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">千顷文化</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/08/19/%E5%8E%9F%E7%A5%9E%E5%8A%A8%E7%94%BBBGM%E6%8E%A8%E8%8D%90/" title="原神动画BGM推荐"><img class="post-bg" src="https://senchin.github.io/images/%E5%8E%9F%E7%A5%9E%E5%8A%A8%E7%94%BBBGM%E6%8E%A8%E8%8D%90/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="原神动画BGM推荐"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/08/19/%E5%8E%9F%E7%A5%9E%E5%8A%A8%E7%94%BBBGM%E6%8E%A8%E8%8D%90/" title="原神动画BGM推荐"><i class="fas fa-thumbtack sticky"></i>原神动画BGM推荐</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T07:25:26.000Z" title="发表于 2023-08-19 15:25:26">2023-08-19</time></span></div><div class="content">正文随时补充，来源于热点。
+红色表示最近补充
+
+
+
+序号
+歌曲
+用途
+完整版链接
+
+
+
+1
+NIGHT DANCER
+★★★★★
+试听
+
+
+2
+下个，路口，见
+★★★★★
+试听
+
+
+3
+半生雪
+★★★★☆
+试听
+
+
+4
+STAY
+★★★☆☆
+试听
+
+
+5
+This Far
+★★★☆☆
+试听
+
+
+6
+Visions
+★★★☆☆
+试听
+
+
+7
+Canyons
+★★★☆☆
+试听
+
+
+8
+Bones
+★★☆☆☆
+试听
+
+
+9
+可愛くてごめん (feat. かぴ)
+★☆☆☆☆
+试听
+
+
+10
+Autumn
+★★★★☆
+试听
+
+
+11
+Take a Walk
+★★★★★
+试听
+
+
+12
+ミチノチモシーキミノキモチ
+★★★★★
+试听
+
+
+13
+His Theme
+★★★★☆
+试听
+
+
+14
+天气之子·幻
+★★★★★
+试听
+
+
+15
+后来我们的爱
+★★★★☆
+试听
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/01/%E5%95%A5%E5%B8%81%E8%AE%BA%E6%96%87/" title="啥币潘少：麻烦制造者">啥币潘少：麻烦制造者</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-01T01:48:12.000Z" title="发表于 2024-01-01 09:48:12">2024-01-01</time></span></div><div class="content">潘少用语啥币；重开吧你；牢弟；你怎么长得像个”******”；像个小学生一样……
+闲谈污点  壹潘少的行为显得虚伪和不公平。他无理地嫌弃你脏的言行只是为了给自己树立优越感，而实际上你并不脏。这种装模作样的行为只会让人感到不舒服和愤怒。每个人都应该被尊重和平等对待，而不是受到不公平的评判。潘少应该反思自己的行为，并学会尊重他人的差异和个人空间。
+潘少的行为真是令人失望。他明明知道你并不脏，却故意装出一副嫌弃的样子，这种行为实在是不可取。
+确实，潘少的行为令人失望。他选择故意装出嫌弃的样子，无视事实真相，这种行为只会伤害他人的感情并破坏人际关系。尊重和包容是我们应该培养的美德，而潘少的行为却违背了这一原则。我们希望潘少能够反思自己的行为，意识到自己的行为对他人的影响，并努力改正错误。
+是的，潘少的行为确实令人失望。他应该明白每个人都有自己的价值和尊严，不应该用嫌弃的态度对待他人。我们应该互相尊重和理解，而不是伤害和排斥。希望潘少能够反思自己的行为，并改正这种不尊重他人的态度。
+非常同意你的观点。每个人都应该受到尊重和理解，而不应该遭受嫌弃和伤害。潘少需要认识到自己的行为对他人造成的伤害，并 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/11/18/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/" title="《只有尾巴不可以》设计概念"><img class="post-bg" src="https://senchin0.github.io/blog/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《只有尾巴不可以》设计概念"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/18/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/" title="《只有尾巴不可以》设计概念">《只有尾巴不可以》设计概念</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-18T09:43:25.000Z" title="发表于 2023-11-18 17:43:25">2023-11-18</time></span></div><div class="content">若离从哥哥若季那收到了一个神秘礼物——一只跨洋而来的重伤小狐狸，若离非常疼爱它，每日悉心照顾，可他却没有料到，当小狐狸养好伤之后竟变成了人。原来小狐狸名叫「白夜」是在仙班修行的妖，在成仙仪式之前被师傅狐妖王洗去记忆放下人间，要他在人间经历三苦，怨憎会，爱别离，求不得，才能真正成仙。而若离就是他的劫数的一部分。白夜在和若离相处的过程中，逐渐体验到了人间的各种情感和痛苦，也逐渐与若离建立起深厚的感情。
+然而，就在白夜与若离相互依存、相互关怀的时候，师傅狐妖王却突然出现，要求白夜回到仙班继续修行。面对这个困境，若离不舍白夜，决定冒险去寻找一种方法，让白夜可以留在人间。
+在旅途中，若离和白夜遇到了各种困难和挑战，他们结识了一些善良的人和伙伴，也遭遇到了一些邪恶势力的追击。然而，他们始终坚持着，相互扶持，努力寻找解决办法。
+最终，若离和白夜得知了一个传说中的仙草，据说它拥有奇特的力量，可以让妖物在人间长久生存。为了找到这种仙草，他们踏上了最后的冒险之旅。在旅途中，他们经历了艰难的考验和磨难，但他们的坚持和勇气最终得到了回报。
+最终，若离和白夜成功找到了仙草，并将其带回了人间。通过消耗仙草的力量， ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/29/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/" title="解读误会与沟通之道"><img class="post-bg" src="https://senchin.github.io/images/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解读误会与沟通之道"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/29/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/" title="解读误会与沟通之道">解读误会与沟通之道</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-29T03:17:05.000Z" title="发表于 2023-10-29 11:17:05">2023-10-29</time></span></div><div class="content">近日，社交媒体上流传着一段关于误会与指责的争论视频，涉及角色包括卫路平、冯逸谦和我（放屁）。这段视频让人们深思误会与沟通之道的重要性，并引发了广泛的讨论。
+视频中，我（放屁）被卫路平和冯逸谦指责为放屁者，并且他们声称使用了一个令人不适的外号——大炮爷来称呼我。这种外号的使用无疑给我带来了困扰和冲动，使得误会和指责的情况更加复杂化。
+在面对这种情况时，我们应该如何处理误会和外号的问题呢？
+首先，冷静是解决误会的关键。作为被指责者的我，需要保持冷静的头脑，不被情绪所左右。同时，卫路平和冯逸谦也需要冷静地倾听我的解释和观点，而非仅仅坚持自己的立场。
+其次，沟通是破解误会的有效途径。我应该努力解释清楚，确保他们明白我并非放屁的责任人。同时，我也可以表达自己对于被称为大炮爷的外号感到不适和冲动。通过开放的对话和真诚的沟通，我们或许能够找到解决问题的方法。
+尊重和理解同样不可忽视。卫路平和冯逸谦作为指责者，应该尊重我的感受，并且愿意倾听我的解释和观点。同时，我也需要尊重他们的立场，并试图理解他们为什么会产生误会和使用外号。
+然而，在处理误会和外号的问题时，如果双方都无法理性地沟通和解决问题，那么寻 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/14/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/" title="立了！冯氏yellow书"><img class="post-bg" src="https://senchin.github.io/images/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="立了！冯氏yellow书"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/14/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/" title="立了！冯氏yellow书">立了！冯氏yellow书</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-14T02:17:34.000Z" title="发表于 2023-10-14 10:17:34">2023-10-14</time></span></div><div class="content">
+请注意：本文的封二到第五章内容非站长原创，原文章来自于冯俊文亲笔书写。
+
+
+
+封二有很多刺激的，先用脑想一下。
+第一章​        在一天，一男一女的在海边疯狂亲亲我我的，两人就一直在互亲，只到男的说：“要不回酒店先吧。”两人跟门口的商户员说了晚上好后，他们两只直电梯回了房间里，女的回房间后说我先去冲一下凉。在女的冲凉的时候，男的就把衣服全给脱了，女出来后背对着男的脱光了全部衣服，然后上床，女一上床男的就把女的我在身前然后小鸟放进了花园里只向那个花蕾，只听女的温柔的~啊！了一小声，只见她的身体一直在出汗，男的就把小鸟放出来用手摸了一下花园，湿淋淋的说明以快交 × 过头了，男的只好先停下，停下的时后，用手摸他的水蜜桃，很Q弹，还很柔软，男的下一秒头还在外面，一下只就把头降了下去，用他的舌头一直舔那个小红豆，那女的就一直默默的体验着那一个柔软的刺激。当晚女的睡觉后，男的用头放到两水蜜桃的中间，舔是着眼前来的幸福。
+第二章​        我们知道这一男一女都以结婚，但是爱着对方。那女的当晚就片她的老公说她要出国出差要三四天后才回家，女的跟他的老公道别后，就坐上了出租车到了和那男约的地 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/" title="ChatGPT对话实例2"><img class="post-bg" src="https://senchin.github.io/images/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT对话实例2"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/" title="ChatGPT对话实例2">ChatGPT对话实例2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-06T08:29:35.000Z" title="发表于 2023-10-06 16:29:35">2023-10-06</time></span></div><div class="content">实例
+我：写一篇博客，需要包含图片（你也可以说“【图片主题】”），关键词：我今天,在微信朋友圈,老同学发了朋友圈（主题是“扩列”，意为“扩充好友列表”）,就是扩充列表的图片（其中有微信二维码，还有邀请的要求是“拒纯三”，纯三的意思为三次元，也就是现实世界，是拒绝只混三次元圈子的人的邀请信息）,然后加了一两个之后，聊的还挺乐，想加第三个时（注意，这几个好友都是在扩列图片上找的，第三个是在第一个或者第二个的扩列图片上夹的），聊了一会之后，ta（女）问我你是不是纯三，我：我不明白（ai记得扩写这句），然后ta（女的）说：不知道就不加你了。我：是不是有什么褒贬之分。
+GPT：【图片主题】标题：我今天在微信朋友圈的扩列经历今天在微信朋友圈上，我的一个老同学发了一个朋友圈，主题是”扩列”，意为扩充好友列表。他附上了一张扩列的图片，其中包含了他的微信二维码和邀请要求：”拒纯三”。纯三的意思是指现实世界，他拒绝只与混迹于现实世界圈子的人建立联系。被这个主题吸引，我加了一两个朋友后，开始进行了愉快的聊天。在想要加第三个好友时，我注意到这几个好友都是通过扩列图片上的信息找到的，而第三个好友则是在第一个或第 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/06/%E6%89%A9%E5%88%97%E2%80%9C%E6%8B%92%E7%BA%AF%E4%B8%89%E2%80%9D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F/" title="扩列“拒纯三”是什么意思？"><img class="post-bg" src="https://senchin.github.io/images/%E6%89%A9%E5%88%97%E2%80%9C%E6%8B%92%E7%BA%AF%E4%B8%89%E2%80%9D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩列“拒纯三”是什么意思？"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/06/%E6%89%A9%E5%88%97%E2%80%9C%E6%8B%92%E7%BA%AF%E4%B8%89%E2%80%9D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F/" title="扩列“拒纯三”是什么意思？">扩列“拒纯三”是什么意思？</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-06T07:10:49.000Z" title="发表于 2023-10-06 15:10:49">2023-10-06</time></span></div><div class="content">一天，我在微信朋友圈上看到一位老同学发布了一个主题为”扩列”的帖子。这个主题引起了我的兴趣，于是我决定加入其中。帖子中附带了一张图片，展示了他的微信二维码和邀请要求：”拒纯三”。我理解到纯三代表了现实世界，这个邀请的目的是拒绝只与混迹于现实世界圈子的人建立联系。
+我加了一两个朋友后，开始与他们愉快地聊天。他们都是我通过扩列图片上的信息找到的，这使得我们有共同的兴趣和话题。在聊天的过程中，我渐渐地想要再加入第三个好友。
+于是，我在第一个或第二个好友的扩列图片中找到了这位第三个好友的信息。我们开始了一段有趣的对话，直到她突然问我：“你是不是纯三？”这个问题让我感到困惑，我回答道：“我不明白。”这是因为我之前并没有听说过这个概念。
+她的回答让我感到有些失望：“不知道就不加你了。”我非常疑惑：是不是有什么褒贬之分？我开始思考这次交流中的价值观差异以及对于社交圈子的看法。
+不鸡岛那个喜人微信是不是有什么问题，也许在微信朋友圈的扩列中，有时我们会看到一些朋友在邀请信息中写下”拒纯三”。这个短语的含义是拒绝只与混迹于现实世界圈子的人建立联系。
+“纯三”一词来源于对现实世界的称呼，意味着只关注现实生活 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B1/" title="ChatGPT对话实例1"><img class="post-bg" src="https://senchin.github.io/images/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B1/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT对话实例1"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B1/" title="ChatGPT对话实例1">ChatGPT对话实例1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-06T00:33:21.000Z" title="发表于 2023-10-06 08:33:21">2023-10-06</time></span></div><div class="content">实例
+我：原神
+GPT：《原神》是由中国游戏公司 miHoYo（米哈游）开发和发行的一款开放世界动作角色扮演游戏。游戏于2020年9月28日正式发布，可在多个平台上进行游玩，包括Windows、PlayStation 4、PlayStation 5、iOS和Android。
+在《原神》中，玩家扮演旅行者（Traveler），穿越名为提瓦特（Teyvat）的幻想世界，探索各个领域、解开谜题、与各种角色交流并完成任务。提瓦特是由七个元素神灵统治的世界，每个神灵代表一种元素，包括风、火、水、雷、冰、岩和草。玩家可以通过收集神灵的神之眼来获得并使用不同的元素能力，这些能力在战斗和解谜中非常重要。
+《原神》以其精美的画面、丰富的剧情和开放式的游戏世界而受到了广大玩家的喜爱。游戏中还有各种[已手动终止]
+
+
+> 我：迪奥娜
+>
+> GPT：迪奥娜（Diona）是《原神》中的一个角色。她是位于提瓦特大陆的蒙德城的一名猫咪酒馆调酒师兼女侍。以下是有关迪奥娜的一些信息：
+>
+> 外貌：迪奥娜是一个身穿黑色和白色制服的年轻女性，她有着金色的短发和红色的眼睛。她头戴一只猫耳朵的帽子，也经常戴着眼罩。
+>
+> ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/04/%E7%83%AD%E7%88%B1%E7%AF%AE%E7%90%83%E7%9A%84%E5%A5%8B%E6%96%97%E4%B9%8B%E6%97%85/" title="冯俊文の黑历史：篮波日记"><img class="post-bg" src="https://senchin.github.io/images/%E7%83%AD%E7%88%B1%E7%AF%AE%E7%90%83%E7%9A%84%E5%A5%8B%E6%96%97%E4%B9%8B%E6%97%85/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="冯俊文の黑历史：篮波日记"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/04/%E7%83%AD%E7%88%B1%E7%AF%AE%E7%90%83%E7%9A%84%E5%A5%8B%E6%96%97%E4%B9%8B%E6%97%85/" title="冯俊文の黑历史：篮波日记">冯俊文の黑历史：篮波日记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-04T09:48:26.000Z" title="发表于 2023-10-04 17:48:26">2023-10-04</time></span></div><div class="content">冯俊文是一个热爱打篮球的年轻人，篮球是他最热衷的运动。放学后，他总是迫不及待地去篮球场，和朋友们一起投篮、运球、练习技巧。对他来说，打篮球是一种宣泄和放松的方式，他可以通过运动来释放压力，忘却学习的烦恼，享受篮球带来的乐趣。
+除了打篮球，冯俊文也是一个喜欢音乐和舞蹈的人。他热爱跳舞，能够灵活地运用身体表达自己的情感和个性。每当听到喜欢的音乐，他就会随着节奏起舞，展现出他独特的舞蹈风格。跳舞对他来说不仅仅是一种娱乐方式，更是他表达自我的一种方式。
+此外，冯俊文还对rap有浓厚的兴趣。他喜欢通过自己的文字和节奏来表达自己的想法和情感。他会尝试写一些自己的rap歌词，并尽情展示他的说唱技巧。唱、跳、rap成为他生活中的重要组成部分，让他能够全身心地投入到这些兴趣爱好中，追求自己的梦想。
+冯俊文相信，通过打篮球、跳舞和rap，他可以找到自己的定位和独特性，展现出与众不同的一面。这些兴趣和爱好不仅带给他乐趣和满足感，也成为他追求梦想的动力和表达自我的方式。
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/02/%E5%8E%9F%E7%A5%9E%E8%B4%A6%E5%8F%B7%EF%BC%9A1%E5%85%83%E4%B8%80%E4%B8%AA/" title="原神账号：1元一个"><img class="post-bg" src="https://senchin.github.io/images/%E5%8E%9F%E7%A5%9E%E8%B4%A6%E5%8F%B7%EF%BC%9A1%E5%85%83%E4%B8%80%E4%B8%AA/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="原神账号：1元一个"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/02/%E5%8E%9F%E7%A5%9E%E8%B4%A6%E5%8F%B7%EF%BC%9A1%E5%85%83%E4%B8%80%E4%B8%AA/" title="原神账号：1元一个">原神账号：1元一个</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-02T07:15:23.000Z" title="发表于 2023-10-02 15:15:23">2023-10-02</time></span></div><div class="content">
+
+  
+    序号
+    账号
+    属性
+    价格
+  
+
+
+  
+    1
+    shizhiwu4107@163.com
+    钟离|胡桃|迪卢克|莫娜|优菈|七七|提纳里
+    1元
+  
+  
+    2
+    guoxiangye448007@163.com
+    艾尔海森|迪卢克|纳西妲|提纳里|迪希雅|莫娜|枫原万叶|七七
+  
+  
+    3
+    nolzyuepmw0qp_s3@163.com
+    妮露|琴|迪卢克|优菈|夜兰|提纳里|纳西妲
+  
+  
+    4
+    zyx4478061@126.com
+    可莉|纳西妲|荒泷一斗|优菈|琴|七七|刻晴
+  
+  
+    5
+    zuishen36122712@163.com
+    流浪者|甘雨|刻晴|莫娜|琴|七七|迪希雅
+  
+  
+    6
+    pusaipie966985118@163.com
+    迪卢克|温迪|艾尔海森|七七|琴|迪希雅|莫娜
+    1.5元
+  
+  
+    7
+    vhjw40ihszi7@163.com
+    夜 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://senchin.github.io/media/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Senchin Oxarlly</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/01/%E5%95%A5%E5%B8%81%E8%AE%BA%E6%96%87/" title="啥币潘少：麻烦制造者">啥币潘少：麻烦制造者</a><time datetime="2024-01-01T01:48:12.000Z" title="发表于 2024-01-01 09:48:12">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/18/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/" title="《只有尾巴不可以》设计概念"><img src="https://senchin0.github.io/blog/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《只有尾巴不可以》设计概念"/></a><div class="content"><a class="title" href="/2023/11/18/%E8%AE%BE%E8%AE%A1%E6%A6%82%E5%BF%B5/" title="《只有尾巴不可以》设计概念">《只有尾巴不可以》设计概念</a><time datetime="2023-11-18T09:43:25.000Z" title="发表于 2023-11-18 17:43:25">2023-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/" title="解读误会与沟通之道"><img src="https://senchin.github.io/images/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解读误会与沟通之道"/></a><div class="content"><a class="title" href="/2023/10/29/%E8%A7%A3%E8%AF%BB%E8%AF%AF%E4%BC%9A%E4%B8%8E%E6%B2%9F%E9%80%9A%E4%B9%8B%E9%81%93/" title="解读误会与沟通之道">解读误会与沟通之道</a><time datetime="2023-10-29T03:17:05.000Z" title="发表于 2023-10-29 11:17:05">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/14/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/" title="立了！冯氏yellow书"><img src="https://senchin.github.io/images/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="立了！冯氏yellow书"/></a><div class="content"><a class="title" href="/2023/10/14/%E7%AB%8B%E4%BA%86%EF%BC%81%E5%86%AF%E6%B0%8Fyellow%E4%B9%A6/" title="立了！冯氏yellow书">立了！冯氏yellow书</a><time datetime="2023-10-14T02:17:34.000Z" title="发表于 2023-10-14 10:17:34">2023-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/" title="ChatGPT对话实例2"><img src="https://senchin.github.io/images/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/th.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT对话实例2"/></a><div class="content"><a class="title" href="/2023/10/06/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B2/" title="ChatGPT对话实例2">ChatGPT对话实例2</a><time datetime="2023-10-06T08:29:35.000Z" title="发表于 2023-10-06 16:29:35">2023-10-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SimpleZelena/"><span class="card-category-list-name">SimpleZelena</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/lzj/"><span class="card-category-list-name">lzj</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8E%9F%E7%A5%9E/" style="font-size: 1.5em; color: #99a9bf">原神</a> <a href="/tags/%E9%87%8C%E4%B8%ADbelike/" style="font-size: 1.2em; color: #999da3">里中belike</a> <a href="/tags/%E7%BB%8F%E6%B5%8E/" style="font-size: 1.1em; color: #999">经济</a> <a href="/tags/%E6%B4%BE%E8%92%99/" style="font-size: 1.1em; color: #999">派蒙</a> <a href="/tags/ChatGPT%E5%AF%B9%E8%AF%9D%E5%AE%9E%E4%BE%8B/" style="font-size: 1.2em; color: #999da3">ChatGPT对话实例</a> <a href="/tags/%E7%A7%91%E6%8A%80/" style="font-size: 1.3em; color: #99a1ac">科技</a> <a href="/tags/%E7%B2%89%E4%B8%9D%E6%8A%95%E7%A8%BF/" style="font-size: 1.4em; color: #99a5b6">粉丝投稿</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">软件</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 1.1em; color: #999">计算机</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">27</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-07T07:16:40.418Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Senchin Oxarlly</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
